@@ -79,8 +79,13 @@ public class Picture {
             wall.changeColor("red");
             window.changeColor("black");
             roof.changeColor("green");
-            sun.changeColor("yellow");
+            sun.changeColor("blue");
         }
     }
 
+    public void coucher(){
+        if(wall!=null){ 
+            sun.slowMoveVertical(250);
+        }
+    }
 }

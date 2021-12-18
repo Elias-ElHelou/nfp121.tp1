@@ -1,5 +1,4 @@
 package question3;
-
 /**
  * Classe-test AuditeurCNAMTest.
  * 
@@ -29,7 +28,7 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
     // à l'aide du menu contextuel "Présentoir --> Engagements".
     // Notez cependant que ce dernier ne peut saisir les objets primitifs
     // du présentoir (les objets sans constructeur, comme int, float, etc.).
-
+    private question3.AuditeurCNAM auditeur;
     /**
      * Constructeur de la classe-test AuditeurCNAMTest.
      */
@@ -44,6 +43,9 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
     protected void setUp() // throws java.lang.Exception
     {
         // Initialisez ici vos engagements
+        System.out.println("Le test a commencé");
+        auditeur = new question3.AuditeurCNAM("H#él:ou", "Eliæs", "09092");
+        // Initialisez ici vos engagements
     }
 
     /**
@@ -54,6 +56,8 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
     protected void tearDown() // throws java.lang.Exception
     {
         // Libérez ici les ressources engagées par setUp()
+        auditeur = null;
+        System.out.println("test terminé");
     }
 
     /*
@@ -121,5 +125,17 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
         assertEquals("Mme Chloé chloé ", "chloé", auditeur1.prenom());
         assertEquals(" nom avec accent (é devient e) ? ", "chloe_c",
             auditeur1.login());
+    }
+    
+    //tester avec mutateur
+    public void test_getters(){
+        assertTrue(auditeur.nom() == "H#él:ou");
+        assertTrue(auditeur.prenom() == "Eliæs");
+        assertTrue(auditeur.matricule() == "09092");
+    }
+    
+    //tester avec successeur pour comparer le output avec le résultat expecté
+    public void test_specialCharacters(){
+        assertTrue(auditeur.login().equals("h_el_o_e"));
     }
 }

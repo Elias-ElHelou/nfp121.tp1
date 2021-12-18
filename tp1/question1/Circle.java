@@ -149,7 +149,7 @@ public class Circle {
     /*
      * Draw the circle with current specifications on screen.
      */
-    private void draw() {
+      private void draw() {
         if (isVisible) {
             Canvas canvas = Canvas.getCanvas();
             canvas.draw(this, color, new Ellipse2D.Double(xPosition, yPosition,
